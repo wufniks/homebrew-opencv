@@ -31,7 +31,7 @@ class OpencvFull < Formula
   depends_on "tbb"
   depends_on "vtk"
   depends_on "webp"
-  depends_on "ant" if build.with? "java" => :build
+  depends_on "ant" => :build if build.with? "java"
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.5.0.tar.gz"
