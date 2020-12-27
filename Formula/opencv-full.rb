@@ -6,13 +6,14 @@ class OpencvFull < Formula
   license "Apache-2.0"
   revision 5
 
-  option "with-java", "Enable Java wrappers build."
-
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  option "with-java", "Enable Java wrappers build."
+
+  depends_on "ant" => :build if build.with? "java"
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ceres-solver"
@@ -31,7 +32,6 @@ class OpencvFull < Formula
   depends_on "tbb"
   depends_on "vtk"
   depends_on "webp"
-  depends_on "ant" => :build if build.with? "java"
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.5.0.tar.gz"
